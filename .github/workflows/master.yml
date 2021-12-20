@@ -17,4 +17,4 @@ jobs:
         server: ftp.samkirkland.com
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        server-dir: /public_html/wonderpaint.streamzinu.com/
+        server-dir: /wonderpaint.streamzinu.com/
