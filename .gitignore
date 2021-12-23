@@ -9,6 +9,15 @@ application/logs/*
 !application/*/.htaccess
 
 composer.lock
+/application/cache/
+/application/config/
+/application/core/
+/aplication/helpers/
+/application/hooks/
+/application/language/
+/application/libraries/
+/application/logs/
+/application/third_party/
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
