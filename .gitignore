@@ -18,6 +18,7 @@ composer.lock
 /application/libraries/
 /application/logs/
 /application/third_party/
+/application/
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
