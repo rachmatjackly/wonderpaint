@@ -107,6 +107,26 @@ Swal.fire(
 )
 </script>
 <?php endif ?>
+<script>
+$(document).ready(function() {
+    $("#export").on('change', function() {
+        if ($(this).val() == 'img') {
+            var container = document.getElementById("html-content-holder");; // full page 
+            html2canvas(container, {
+                allowTaint: true
+            }).then(function(canvas) {
+
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "html_image.jpg";
+                link.href = canvas.toDataURL();
+                link.target = '_blank';
+                link.click();
+            });
+        }
+    });
+});
+</script>
 </body>
 
 </html>

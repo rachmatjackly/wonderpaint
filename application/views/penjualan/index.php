@@ -8,10 +8,9 @@
                 </div>
                 <form class="form-header" action="" method="POST">
                     <div class="mx-auto col-lg-6 d-flex">
-                        <input class="form-control" type="text" name="search"
-                            placeholder="Search..." />
+                        <input class="form-control" type="text" name="search" placeholder="Search..." />
                         <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i>
+                            <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>
@@ -19,23 +18,18 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="table-data__tool">
-                    <div class="table-data__tool-left">
-
-                    </div>
-                    <div class="table-data__tool-right">
-                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                            <select class="js-select2" name="type">
-                                <option value="">Export</option>
-                                <option value="">PDF</option>
-                                <option value="">Image</option>
-                                <option value="">Doc</option>
-                            </select>
-                            <div class="dropDownSelect2"></div>
-                        </div>
+                <div class="d-flex justify-content-between">
+                    <div class="dropDownSelect2"></div>
+                    <div class="">
+                        <select class="form-control btn btn-primary mb-2 mt-5" name="type" id="export">
+                            <option value="">Export</option>
+                            <option value="">PDF</option>
+                            <option value="img">Image</option>
+                            <option value="">Doc</option>
+                        </select>
                     </div>
                 </div>
-                <div class="table-responsive m-b-40">
+                <div class="table-responsive m-b-40" id="html-content-holder">
                     <table class="table table-bordered text-center" style="white-space:nowrap">
                         <thead class="bg-success text-white">
                             <tr>
@@ -55,10 +49,10 @@
                             <?php 
                                 $i= 1; 
                                 if(empty($penjualan)){?>
-                                    <tr>
-                                        <td colspan="10">Data Unavailable</td>
-                                    </tr>
-                                <?php }
+                            <tr>
+                                <td colspan="10">Data Unavailable</td>
+                            </tr>
+                            <?php }
                                 foreach($penjualan as $data):
                                 ?>
                             <tr>
@@ -66,7 +60,7 @@
                                 <td><?=date('d-m-Y',strtotime($data->tanggal))?></td>
                                 <td><?=$data->kd_pelanggan?></td>
                                 <td><?=$data->kd_barang?></td>
-                                <td ><?=$data->nama?></td>
+                                <td><?=$data->nama?></td>
                                 <td>Rp <?=number_format($data->harga,0,',','.');?></td>
                                 <td><?=number_format($data->jumlah,0,',','.');?></td>
                                 <td>Rp <?=number_format($data->total_harga,0,',','.');?></td>
@@ -79,11 +73,10 @@
                 </div>
                 <!-- END DATA TABLE -->
                 <div class="buttons d-flex justify-content-between">
-                    <button class="btn btn-secondary" data-toggle="modal"
-                        data-target="#aboutModal">About</button>
+                    <button class="btn btn-secondary" data-toggle="modal" data-target="#aboutModal">About</button>
                     <div class="button d-flex justify-content-end">
-                        <button class="btn btn-primary mr-2" data-toggle="modal"
-                            data-target="#addPenjualanModal"><i class="fa fa-plus mr-1"></i>
+                        <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#addPenjualanModal"><i
+                                class="fa fa-plus mr-1"></i>
                             Tambah
                         </button>
                         <a type="button" href="<?= base_url()?>penjualan/edit" class="btn btn-warning text-white"><i

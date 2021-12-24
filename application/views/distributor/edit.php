@@ -18,23 +18,18 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="table-data__tool">
-                    <div class="table-data__tool-left">
-
-                    </div>
-                    <div class="table-data__tool-right">
-                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                            <select class="js-select2" name="type">
-                                <option value="">Export</option>
-                                <option value="">PDF</option>
-                                <option value="">Image</option>
-                                <option value="">Doc</option>
-                            </select>
-                            <div class="dropDownSelect2"></div>
-                        </div>
+                <div class="d-flex justify-content-between">
+                    <div class="dropDownSelect2"></div>
+                    <div class="">
+                        <select class="form-control btn btn-primary mb-2 mt-5" name="type" id="export">
+                            <option value="">Export</option>
+                            <option value="">PDF</option>
+                            <option value="img">Image</option>
+                            <option value="">Doc</option>
+                        </select>
                     </div>
                 </div>
-                <div class="table-responsive m-b-40">
+                <div class="table-responsive m-b-40" id="html-content-holder">
                     <table class="table table-bordered text-center" style="white-space:nowrap;">
                         <thead class="bg-success  text-white">
                             <tr>
@@ -139,6 +134,6 @@ $(document).ready(function() {
             }
         })
     });
-    
+
 });
 </script>

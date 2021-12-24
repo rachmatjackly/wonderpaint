@@ -19,6 +19,8 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url()?>assets/css/sb-admin-2.min.css" rel="stylesheet">
     <script src="<?= base_url()?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url()?>assets/js/html2canvas.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <style>
     .hero {
         position: relative;
