@@ -8,9 +8,9 @@ class Model_authentication extends CI_Model {
         return $this->db->get_where('user',['username'=> $username])->result_array();
     }
 
-    public function get_data_by_kd_akses($kd_akses)
+    public function get_data_by_kd_akses($username,$kd_akses)
     {
-        return $this->db->get_where('user',['kd_akses'=> $kd_akses])->result_array();
+        return $this->db->get_where('user',['username'=>$username,'kd_akses'=> $kd_akses])->result_array();
     }
 
     public function get_num_rows($data)

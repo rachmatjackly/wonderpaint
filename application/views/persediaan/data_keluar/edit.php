@@ -83,11 +83,15 @@
                     </table>
                 </div>
                 <!-- END DATA TABLE -->
-                <div class="button d-flex justify-content-end">
-                    <a type="button" href="<?= base_url()?>persediaan/datakeluar/<?= isset($data->id)?>"
-                        class="btn btn-primary text-white">
-                        Save
-                    </a>
+                <div class="buttons d-flex justify-content-between">
+                    <a href="" type="button" class="btn btn-secondary" data-toggle="modal"
+                        data-target="#aboutModal">About</a>
+                    <div class="button d-flex justify-content-end">
+                        <a type="button" href="<?= base_url()?>persediaan/datakeluar/<?= isset($data->id)?>"
+                            class="btn btn-primary text-white">
+                            Save
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,9 +1,9 @@
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
-            <?php if($this->session->flashdata('gagalLogin')) : ?>
+            <?php if($this->session->flashdata('verification')) : ?>
             <div class="col-md-3 text-center alert alert-danger alert-dismissible fade show" role="alert">
-                <strong> Nama / Password Salah!! </strong>
+                <strong> Kode / Password Salah !! </strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <?php endif ?>

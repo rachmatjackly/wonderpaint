@@ -1,4 +1,3 @@
-
 <div class="section__content section__content--p30 hero">
     <div class="container-fluid">
         <div class="row m-b-40">
@@ -9,10 +8,9 @@
                 </div>
                 <form class="form-header" action="" method="POST">
                     <div class="mx-auto col-lg-6 d-flex">
-                        <input class="form-control" type="text" name="search"
-                            placeholder="Search..." />
+                        <input class="form-control" type="text" name="search" placeholder="Search..." />
                         <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i>
+                            <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>
@@ -56,30 +54,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php 
+                            <?php 
                                 $i= 1; 
                                 if(empty($data_masuk)){?>
-                                    <tr>
-                                        <td colspan="10">Data Unavailable</td>
-                                    </tr>
-                                <?php }
+                            <tr>
+                                <td colspan="10">Data Unavailable</td>
+                            </tr>
+                            <?php }
                                 foreach($data_masuk as $data):
                                 ?>
                             <tr>
                                 <td><?=$i++?></td>
-                                <td ><?=$data->nama_pemasok?></td>
+                                <td><?=$data->nama_pemasok?></td>
                                 <td><?=date('d-m-Y',strtotime($data->tanggal))?></td>
                                 <td><?=$data->kd_barang?></td>
-                                <td ><?=$data->nama_barang?></td>
+                                <td><?=$data->nama_barang?></td>
                                 <td><?=$data->stok_awal?></td>
                                 <td><?=$data->stok_masuk?></td>
-                                <td ><?=$data->jumlah?></td>
+                                <td><?=$data->jumlah?></td>
                                 <td><?=$data->keterangan?></td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-danger remove"
                                         data-id=<?=$data->id?>>Delete</button>
-                                    <a href="" type="button" data-id=<?=$data->id?> class="btn btn-sm btn-warning" data-toggle="modal"
-                                        data-target="#editDataMasukModal">Edit</a>
+                                    <a href="" type="button" data-id=<?=$data->id?> class="btn btn-sm btn-warning"
+                                        data-toggle="modal" data-target="#editDataMasukModal">Edit</a>
                                 </td>
                             </tr>
                             <?php endforeach?>
@@ -87,11 +85,14 @@
                     </table>
                 </div>
                 <!-- END DATA TABLE -->
-                <div class="button d-flex justify-content-end">
-                    <a type="button" href="<?= base_url()?>persediaan/datamasuk"
-                        class="btn btn-primary text-white">
-                        Save
-                    </a>
+                <div class="buttons d-flex justify-content-between">
+                    <a href="" type="button" class="btn btn-secondary" data-toggle="modal"
+                        data-target="#aboutModal">About</a>
+                    <div class="button d-flex justify-content-end">
+                        <a type="button" href="<?= base_url()?>persediaan/datamasuk" class="btn btn-primary text-white">
+                            Save
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

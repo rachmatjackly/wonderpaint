@@ -70,6 +70,7 @@ class Authentication extends CI_Controller {
             if($password){
                 $session = array(
                     "nama" => $account[0]['nama'],
+                    "username" => $account[0]['username'],
                     "login" => True
                 );
                 $this->session->set_userdata($session);
@@ -166,23 +167,33 @@ class Authentication extends CI_Controller {
         $param = $this->input->post('param');
         $kd_akses = $this->input->post('kd_akses');
         $password = $this->input->post('password');
-        $getKdAkes = $this->Model_authentication->get_data_by_kd_akses($kd_akses);
+        $getKdAkes = $this->Model_authentication->get_data_by_kd_akses($this->session->username,$kd_akses);
+        $getAccount = $this->Model_authentication->get_data($this->session->username);
         if(count($getKdAkes) > 0) {
-            if($param == 'data_keluar'){
-                redirect("persediaan/edit_data_keluar/" . $this->session->userdata('id'));
-            } elseif ($param == 'data_masuk') {
-                redirect("persediaan/edit_data_masuk/" . $this->session->userdata('id'));
-            } elseif ($param == 'persediaan') {
-                redirect("persediaan/edit_data/" . $this->session->userdata('id'));
-            } elseif($param == 'penjualan') {
-                redirect("penjualan/edit_data/" . $this->session->kd_barang);
-            } elseif($param == 'pelanggan') {
-                redirect("pelanggan/edit_data/" . $this->session->userdata('id'));
-            } elseif($param == 'distributor') {
-                redirect("distributor/edit_data/" . $this->session->userdata('id'));
-            } else {
+            $password = password_verify($password, $getAccount[0]['password']);
+            if($password){
+                if($param == 'data_keluar'){
+                    redirect("persediaan/edit_data_keluar/" . $this->session->userdata('id'));
+                } elseif ($param == 'data_masuk') {
+                    redirect("persediaan/edit_data_masuk/" . $this->session->userdata('id'));
+                } elseif ($param == 'persediaan') {
+                    redirect("persediaan/edit_data/" . $this->session->userdata('id'));
+                } elseif($param == 'penjualan') {
+                    redirect("penjualan/edit_data/" . $this->session->kd_barang);
+                } elseif($param == 'pelanggan') {
+                    redirect("pelanggan/edit_data/" . $this->session->userdata('id'));
+                } elseif($param == 'distributor') {
+                    redirect("distributor/edit_data/" . $this->session->userdata('id'));
+                } else {
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }else {
+                $this->session->set_flashdata('verification', 'gagal');
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }else {
+            $this->session->set_flashdata('verification', 'gagal');
+            redirect($_SERVER['HTTP_REFERER']);
         }
     }
 

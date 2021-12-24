@@ -8,10 +8,9 @@
                 </div>
                 <form class="form-header" action="" method="POST">
                     <div class="mx-auto col-lg-6 d-flex">
-                        <input class="form-control" type="text" name="search"
-                            placeholder="Search..." />
+                        <input class="form-control" type="text" name="search" placeholder="Search..." />
                         <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i>
+                            <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>
@@ -68,14 +67,19 @@
                     </table>
                 </div>
                 <!-- END DATA TABLE -->
-                <div class="button d-flex justify-content-end">
-                    <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#addPelangganModal"><i
-                            class="fa fa-plus mr-1"></i>
-                        Tambah
-                    </button>
-                    <a type="button" href="<?=base_url()?>pelanggan/edit" class="btn btn-warning text-white"><i class="fa fa-edit mr-1"></i>
-                        Edit
-                    </a>
+                <div class="buttons d-flex justify-content-between">
+                    <a href="" type="button" class="btn btn-secondary" data-toggle="modal"
+                        data-target="#aboutModal">About</a>
+                    <div class="button d-flex justify-content-end">
+                        <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#addPelangganModal"><i
+                                class="fa fa-plus mr-1"></i>
+                            Tambah
+                        </button>
+                        <a type="button" href="<?=base_url()?>pelanggan/edit" class="btn btn-warning text-white"><i
+                                class="fa fa-edit mr-1"></i>
+                            Edit
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
