@@ -2,9 +2,8 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2021</span>
             <span>Copyright © <?=date('Y')?>. All rights reserved. Design with <i class="fa fa-heart"
-                            style="color:red"></i> by <a href="https://streamzinu.com">Streamzinu</a>.</span>
+                    style="color:red"></i> by <a href="https://streamzinu.com">Streamzinu</a>.</span>
         </div>
     </div>
 </footer>
@@ -46,6 +45,13 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
 </div>
+
+<!-- Verifikasi MODAL -->
+<div class="modal fade" id="verifikasiModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+</div>
+
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url()?>assets/vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -55,6 +61,8 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url()?>assets/js/sb-admin-2.min.js"></script>
+
+
 
 <!-- Page level plugins -->
 <script src="<?= base_url()?>assets/vendor/chart.js/Chart.min.js"></script>
@@ -72,6 +80,13 @@ $(document).ready(function() {
     $('#addPersediaanModal').load('<?=base_url()?>modal/persediaan');
     $('#addDataMasukModal').load('<?=base_url()?>modal/data_masuk');
     $('#addDataKeluarModal').load('<?=base_url()?>modal/data_keluar');
+    
+    $('#editDistributorModal').load('<?=base_url()?>modal/edit_distributor');
+    $('#editDataMasukModal').load('<?=base_url()?>modal/edit_data_masuk');
+    $('#editDataKeluarModal').load('<?=base_url()?>modal/edit_data_keluar');
+    $('#editPelangganModal').load('<?=base_url()?>modal/edit_pelanggan');
+    $('#editPersediaanModal').load('<?=base_url()?>modal/edit_persediaan');
+    $('#editPenjualanModal').load('<?=base_url()?>modal/edit_penjualan');
 });
 </script>
 <?php if($this->session->flashdata('insert') == 'berhasil'): ?>

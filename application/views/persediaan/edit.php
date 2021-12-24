@@ -59,7 +59,7 @@
                     $i= 1; 
                     if(empty($persediaan)){?>
                             <tr>
-                                <td colspan="9">Data Unavailable</td>
+                                <td colspan="10">Data Unavailable</td>
                             </tr>
                             <?php }
                     foreach($persediaan as $data):
@@ -76,8 +76,8 @@
                                 <td><?=$data->keterangan?></td>
 
                                 <td>
-                                    <a href="<?= base_url()?>persediaan/delete/<?= $data->id?>" type="button" class="btn-sm btn-danger">Delete</a>
-                                    <a href="" type="button" data-id=<?=$data->id?> class="btn-sm btn-warning" data-toggle="modal"
+                                    <button type="button" data-id="<?=$data->id?>" class="btn btn-sm btn-danger remove">Delete</button>
+                                    <a href="" type="button" data-id=<?=$data->id?> class="btn btn-sm btn-warning" data-toggle="modal"
                                         data-target="#editPersediaanModal">Edit</a>
                                 </td>
                             </tr>
@@ -117,6 +117,37 @@ $(document).ready(function() {
                 $('#editPersediaanModal').html(data); //menampilkan data ke dalam modal
             }
         });
+    });
+
+    $(".remove").click(function(e) {
+        var id = $(this).data('id');
+        console.log(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= base_url()?>persediaan/delete/' + id,
+                    success: function(data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Data berhasil di hapus !!',
+                            showConfirmButton: false,
+                        });
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1500);
+                    }
+                });
+
+            }
+        })
     });
 });
 </script>

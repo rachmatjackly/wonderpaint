@@ -56,7 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['registrasi'] = 'authentication/register';
 $route['login'] = 'authentication/login';
 $route['logout'] = 'authentication/logout';
-$route['verification'] = 'authentication/verification';
+$route['verification/(:any)'] = 'authentication/verification/$1';
 
 $route['penjualan'] = 'penjualan/index';
 $route['penjualan/edit'] = 'penjualan/edit';

@@ -38,6 +38,10 @@
                             <input type="password" class="form-control rounded-left" name="password2"
                                 placeholder="Re-Password" required>
                         </div>
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control rounded-left" name="kd_akses"
+                                placeholder="Kode Akses" required>
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="form-control btn btn-primary rounded submit px-3 mb-2"
                                 name="register">Register</button>

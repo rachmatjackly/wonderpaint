@@ -48,10 +48,10 @@ class Pelanggan extends CI_Controller {
     public function edit_data($id)
     {
         $data = array(
-            "nama" => $this->input->post('nama'),
-            "no_tlp" => $this->input->post('no_telp'),
-            "alamat" => $this->input->post('alamat'),
-            "kd_pelanggan" => $this->input->post('kd_pelanggan')
+            "nama" => $this->session->nama,
+            "no_tlp" => $this->session->no_telp,
+            "alamat" => $this->session->alamat,
+            "kd_pelanggan" => $this->session->kd_pelanggan
         );
         $this->Model_pelanggan->edit_data($id,$data);
         $this->session->set_flashdata('edit', 'berhasil');

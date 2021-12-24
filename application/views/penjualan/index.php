@@ -40,6 +40,7 @@
                         <thead class="bg-success text-white">
                             <tr>
                                 <th>No</th>
+                                <th>Tanggal</th>
                                 <th>Kode Pelanggan</th>
                                 <th>Kode Barang</th>
                                 <th>Nama Barang</th>
@@ -55,13 +56,14 @@
                                 $i= 1; 
                                 if(empty($penjualan)){?>
                                     <tr>
-                                        <td colspan="9">Data Unavailable</td>
+                                        <td colspan="10">Data Unavailable</td>
                                     </tr>
                                 <?php }
                                 foreach($penjualan as $data):
                                 ?>
                             <tr>
                                 <td><?=$i++?></td>
+                                <td><?=date('d-m-Y',strtotime($data->tanggal))?></td>
                                 <td><?=$data->kd_pelanggan?></td>
                                 <td><?=$data->kd_barang?></td>
                                 <td ><?=$data->nama?></td>

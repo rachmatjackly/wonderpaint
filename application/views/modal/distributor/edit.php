@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" id="modalss">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="staticBackdropLabel">Edit Data Distributor</h5>
@@ -8,14 +8,17 @@
         </div>
         <div class="modal-body">
             <?php foreach($distributor as $data): ?>
-            <form action="<?= base_url()?>distributor/edit_data/<?= $data->id?>" method="post" id="form_penjualan">
+            <form action="<?= base_url()?>verification/distributor" method="post" id="form_penjualan">
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" name="nama" placeholder="Masukan Nama" class="form-control" value="<?= $data->nama ?>">
+                    <input type="text" name="id" value="<?= $data->id?>" hidden>
+                    <input type="text" name="nama" placeholder="Masukan Nama" class="form-control"
+                        value="<?= $data->nama ?>">
                 </div>
                 <div class="form-group">
                     <label>No. Telepon</label>
-                    <input type="text" name="no_telp" placeholder="Masukan No. Telepon" class="form-control" value="<?= $data->no_tlp ?>">
+                    <input type="text" name="no_telp" placeholder="Masukan No. Telepon" class="form-control"
+                        value="<?= $data->no_tlp ?>">
                 </div>
                 <div class="form-group">
                     <label>Alamat</label>
@@ -24,14 +27,15 @@
                 </div>
                 <div class="form-group">
                     <label>Kode Pelanggan</label>
-                    <input type="text" name="kd_pelanggan" placeholder="Masukan Kode Pelanggan" class="form-control" value="<?= $data->kd_pelanggan ?>">
+                    <input type="text" name="kd_pelanggan" placeholder="Masukan Kode Pelanggan" class="form-control"
+                        value="<?= $data->kd_pelanggan ?>">
                 </div>
-             <?php endforeach ?>
+                <?php endforeach ?>
         </div>
         <div class="modal-footer">
             <button type="submit" form="form_penjualan" class="btn btn-primary" name="update">Update</button>
             </form>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-modal">Close</button>
         </div>
     </div>
 </div>

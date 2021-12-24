@@ -139,16 +139,16 @@ class Persediaan extends CI_Controller {
 
     public function edit_data($id)
     {
-        $tanggal = strtotime($this->input->post('tanggal'));
+        $tanggal = strtotime($this->session->tanggal);
         $data = array(
             'tanggal' => date('Y-m-d',$tanggal),
-            'kd_barang' => $this->input->post('kd_barang'),
-            'nama' => $this->input->post('nama'),
-            'stok_awal' => $this->input->post('stok_awal'),
-            'barang_masuk' => $this->input->post('barang_masuk'),
-            'barang_keluar' => $this->input->post('barang_keluar'),
-            'stok_akhir' => $this->input->post('stok_akhir'),
-            'keterangan' => $this->input->post('keterangan'),
+            'kd_barang' => $this->session->kd_barang,
+            'nama' => $this->session->nama_barang,
+            'stok_awal' => $this->session->stok_awal,
+            'barang_masuk' => $this->session->barang_masuk,
+            'barang_keluar' => $this->session->barang_keluar,
+            'stok_akhir' => $this->session->stok_akhir,
+            'keterangan' => $this->session->keterangan,
             'author' => "",
             "created_at" => date('Y-m-d')
         );
@@ -159,19 +159,19 @@ class Persediaan extends CI_Controller {
 
     public function edit_data_masuk($id)
     {
-        $tanggal = strtotime($this->input->post('tanggal'));
-        $stok_masuk = $this->input->post('stok_masuk');
-        $stok_awal = $this->input->post('stok_awal');
+        $tanggal = strtotime($this->session->tanggal);
+        $stok_masuk = $this->session->stok_masuk;
+        $stok_awal = $this->session->stok_awal;
         $jumlah = $stok_awal + $stok_masuk;
         $data = array(
-            'nama_pemasok' => $this->input->post('nama_pemasok'),
+            'nama_pemasok' => $this->session->nama_pemasok,
             'tanggal' => date('Y-m-d',$tanggal),
-            'kd_barang' => $this->input->post('kd_barang'),
-            'nama_barang' => $this->input->post('nama_barang'),
+            'kd_barang' => $this->session->kd_barang,
+            'nama_barang' => $this->session->nama_barang,
             'stok_awal' => $stok_awal,
             'stok_masuk' => $stok_masuk,
             'jumlah' => $jumlah,
-            'keterangan' => $this->input->post('keterangan'),
+            'keterangan' => $this->session->keterangan,
             'author' => "",
             "created_at" => date('Y-m-d')
         );
@@ -182,18 +182,18 @@ class Persediaan extends CI_Controller {
 
     public function edit_data_keluar($id)
     {
-        $tanggal = strtotime($this->input->post('tanggal'));
-        $stok_masuk = $this->input->post('stok_masuk');
-        $stok_awal = $this->input->post('stok_awal');
+        $tanggal = strtotime($this->session->tanggal);
+        $stok_masuk = $this->session->stok_masuk;
+        $stok_awal = $this->session->stok_awal;
         $jumlah = $stok_awal + $stok_masuk;
         $data = array(
-            'nama_pelanggan' => $this->input->post('nama_pelanggan'),
+            'nama_pelanggan' => $this->session->nama_pelanggan,
             'tanggal' => date('Y-m-d',$tanggal),
-            'kd_barang' => $this->input->post('kd_barang'),
+            'kd_barang' => $this->session->kd_barang,
             'stok_awal' => $stok_awal,
             'stok_keluar' => $stok_masuk,
             'jumlah' => $jumlah,
-            'keterangan' => $this->input->post('keterangan'),
+            'keterangan' => $this->session->keterangan,
             'author' => "",
             "created_at" => date('Y-m-d')
         );

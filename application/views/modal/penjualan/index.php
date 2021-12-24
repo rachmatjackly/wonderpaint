@@ -9,6 +9,10 @@
         <div class="modal-body">
             <form action="" method="post" id="form_penjualan">
                 <div class="form-group">
+                    <label>Tanggal</label>
+                    <input type="date" class="form-control" name="tanggal">
+                </div>
+                <div class="form-group">
                     <label>Kode Pelanggan</label>
                     <input type="text" name="kd_pelanggan" placeholder="Masukan Kode Pelanggan" class="form-control">
                 </div>

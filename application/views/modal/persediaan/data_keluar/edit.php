@@ -8,9 +8,10 @@
         </div>
         <div class="modal-body">
             <?php foreach($data_keluar as $data): ?>
-            <form action="<?=base_url()?>persediaan/edit_data_keluar/<?=$data->id?>" method="post" id="form_penjualan">
+            <form action="<?=base_url()?>verification/data_keluar" method="post" id="form_penjualan">
                 <div class="form-group">
                     <label>Nama Pelanggan</label>
+                    <input hidden type="text" value="<?=$data->id?>" name="id_data">
                     <input type="text" name="nama_pelanggan" class="form-control" placeholder="Masukan Nama Pemasok" value="<?=$data->nama_pelanggan?>">
                 </div>
                 <div class="form-group">
@@ -37,9 +38,10 @@
             <?php endforeach ?>
         </div>
         <div class="modal-footer">
-            <button type="submit" form="form_penjualan" class="btn btn-primary" name="simpan">Simpan</button>
+            <button type="submit"  form="form_penjualan" class="btn btn-primary" name="simpan">Simpan</button>
             </form>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
     </div>
 </div>
+

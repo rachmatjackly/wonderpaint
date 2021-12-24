@@ -27,7 +27,7 @@ class Model_persediaan extends CI_Model {
     public function edit_data_masuk($id, $data)
     {
         $this->db->where('id', $id);
-        $this->db->update('datakeluar', $data);
+        $this->db->update('datamasuk', $data);
     }
 
     public function edit_data_keluar($id, $data)
@@ -43,7 +43,7 @@ class Model_persediaan extends CI_Model {
 
     public function get_data_masuk()
     {
-        return $this->db->get('dataMasuk')->result();
+        return $this->db->get('datamasuk')->result();
     }
 
     public function get_data_keluar()
@@ -58,7 +58,7 @@ class Model_persediaan extends CI_Model {
 
     public function get_data_masuk_id($id)
     {
-        return $this->db->get_where('datakeluar', ['id'=>$id])->result();
+        return $this->db->get_where('datamasuk', ['id'=>$id])->result();
     }
 
     public function get_data_keluar_id($id)
@@ -75,7 +75,7 @@ class Model_persediaan extends CI_Model {
     public function delete_data_masuk($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('datakeluar');
+        $this->db->delete('datamasuk');
     }
 
     public function delete_data_keluar($id)

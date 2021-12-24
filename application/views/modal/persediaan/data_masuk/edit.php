@@ -8,9 +8,10 @@
         </div>
         <div class="modal-body">
             <?php foreach($data_masuk as $data): ?>
-            <form action="<?= base_url()?>persediaan/edit_data_masuk/<?= $data->id?>" method="post" id="form_penjualan">
+            <form action="<?= base_url()?>verification/data_masuk" method="post" id="form_penjualan">
                 <div class="form-group">
                     <label>Nama Pemasok</label>
+                    <input type="text" name="id" hidden value="<?=$data->id?>">
                     <input type="text" name="nama_pemasok" class="form-control" placeholder="Masukan Nama Pemasok" value="<?= $data->nama_pemasok?>">
                 </div>
                 <div class="form-group">

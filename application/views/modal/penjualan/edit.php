@@ -8,7 +8,11 @@
         </div>
         <div class="modal-body" id="bodyPenjualanModal">
             <?php foreach($penjualan as $data): ?>
-            <form action="<?= base_url()?>penjualan/edit_data/<?=$data->kd_barang?>" method="post" id="form_penjualan">
+            <form action="<?= base_url()?>verification/penjualan" method="post" id="form_penjualan">
+                <div class="form-group">
+                    <label>Tanggal</label>
+                    <input type="date" class="form-control" name="tanggal" value="<?= $data->tanggal?>">
+                </div>
                 <div class="form-group">
                     <label>Kode Pelanggan</label>
                     <input type="text" name="kd_pelanggan" value="<?=$data->kd_pelanggan?>"

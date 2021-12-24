@@ -34,10 +34,12 @@ class Penjualan extends CI_Controller {
 
     public function insert_data()
     {
+        $tanggal = strtotime($this->input->post('tanggal'));
         $harga = $this->input->post('harga');
         $jumlah = $this->input->post('jumlah');
         $total = $harga * $jumlah;
         $data = array(
+            "tanggal" => date('Y-m-d', $tanggal),
             "kd_pelanggan" => $this->input->post('kd_pelanggan'),
             "kd_barang" => $this->input->post('kd_barang'),
             "nama" => $this->input->post('nama'),
@@ -56,18 +58,20 @@ class Penjualan extends CI_Controller {
 
     public function edit_data($id)
     {
-        $harga = $this->input->post('harga');
-        $jumlah = $this->input->post('jumlah');
+        $tanggal = strtotime($this->session->tanggal);
+        $harga = $this->session->harga;
+        $jumlah = $this->session->jumlah;
         $total = $harga * $jumlah;
         $data = array(
-            "kd_pelanggan" => $this->input->post('kd_pelanggan'),
-            "kd_barang" => $this->input->post('kd_barang'),
-            "nama" => $this->input->post('nama'),
+            "tanggal" => date('Y-m-d', $tanggal),
+            "kd_pelanggan" => $this->session->kd_pelanggan,
+            "kd_barang" => $this->session->kd_barang,
+            "nama" => $this->session->nama_barang,
             "harga" => $harga,
             "jumlah" => $jumlah,
             "total_harga" => $total,
-            "pembayaran" => $this->input->post('pembayaran'),
-            "keterangan" => $this->input->post('keterangan'),
+            "pembayaran" => $this->session->pembayaran,
+            "keterangan" => $this->session->keterangan,
             "author" => "Admin",
             "created_at" => date('Y-m-d')
         );

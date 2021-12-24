@@ -8,10 +8,9 @@
                 </div>
                 <form class="form-header" action="" method="POST">
                     <div class="mx-auto col-lg-6 d-flex">
-                        <input class="form-control" type="text" name="search"
-                            placeholder="Search..." />
+                        <input class="form-control" type="text" name="search" placeholder="Search..." />
                         <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i>
+                            <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>
@@ -64,8 +63,8 @@
                                 <td><?= $data->alamat ?></td>
                                 <td><?= $data->kd_pelanggan ?></td>
                                 <td>
-                                    <a href="<?= base_url()?>distributor/delete/<?=$data->id?>" type="button"
-                                        class="btn-sm btn-danger">Delete</a>
+                                    <button data-id="<?= $data->id?>" type="button"
+                                        class="btn btn-sm btn-danger remove">Delete</button>
                                     <a href="#editDistributorModal" data-id=<?=$data->id?> data-toggle="modal"
                                         class="btn btn-sm btn-warning" title="Edit details">Edit</a>
                                 </td>
@@ -76,7 +75,8 @@
                 </div>
                 <!-- END DATA TABLE -->
                 <div class="buttons d-flex justify-content-between">
-                    <a href="" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#aboutModal">About</a>
+                    <a href="" type="button" class="btn btn-secondary" data-toggle="modal"
+                        data-target="#aboutModal">About</a>
                     <div class="button d-flex justify-content-end">
                         <a type="button" href="<?=base_url()?>distributor" class="btn btn-primary text-white">
                             Save
@@ -90,7 +90,7 @@
 
 <div class="modal fade" id="editDistributorModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    
+
 </div>
 
 <script type="text/javascript">
@@ -108,5 +108,37 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(".remove").click(function(e) {
+        var id = $(this).data('id');
+        console.log(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= base_url()?>distributor/delete/' + id,
+                    success: function(data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Data berhasil di hapus !!',
+                            showConfirmButton: false,
+                        });
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1500);
+                    }
+                });
+
+            }
+        })
+    });
+    
 });
 </script>

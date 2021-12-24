@@ -40,6 +40,7 @@
                         <thead class="bg-success text-white">
                             <tr>
                                 <th>No</th>
+                                <th>Tanggal</th>
                                 <th>Kode Pelanggan</th>
                                 <th>Kode Barang</th>
                                 <th>Nama Barang</th>
@@ -56,13 +57,14 @@
                                 $i= 1; 
                                 if(empty($penjualan)){?>
                             <tr>
-                                <td colspan="10">Data Unavailable</td>
+                                <td colspan="11">Data Unavailable</td>
                             </tr>
                             <?php }
                                 foreach($penjualan as $data):
                             ?>
                             <tr>
                                 <td><?=$i++?></td>
+                                <td><?=date('d-m-Y',strtotime($data->tanggal))?></td>
                                 <td><?=$data->kd_pelanggan?></td>
                                 <td><?=$data->kd_barang?></td>
                                 <td><?=$data->nama?></td>
@@ -72,8 +74,8 @@
                                 <td class="text-capitalize"><?=$data->pembayaran?></td>
                                 <td><?=$data->keterangan?></td>
                                 <td>
-                                    <a href="<?= base_url()?>penjualan/delete/<?=$data->kd_barang?>" type="button"
-                                        class="btn-sm btn-danger">Delete</a>
+                                    <button type="button" data-id="<?=$data->kd_barang?>" type="button"
+                                        class="btn btn-sm btn-danger remove">Delete</button>
                                     <a href="#editPenjualanModal" data-id=<?=$data->kd_barang?> data-toggle="modal"
                                         class="btn btn-sm btn-warning" title="Edit details">Edit</a>
                                 </td>
@@ -114,5 +116,37 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(".remove").click(function(e) {
+        var id = $(this).data('id');
+        console.log(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= base_url()?>penjualan/delete/' + id,
+                    success: function(data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Data berhasil di hapus !!',
+                            showConfirmButton: false,
+                        });
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1500);
+                    }
+                });
+
+            }
+        })
+    });
 });
 </script>
+
