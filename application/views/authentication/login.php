@@ -18,7 +18,7 @@
 	                    <h3 class="text-center mb-4">Login</h3>
 	                    <form action="" method="post" class="login-form">
 	                        <div class="form-group">
-	                            <input type="text" class="form-control rounded-left" name="nama" placeholder="Username"
+	                            <input type="text" class="form-control rounded-left" name="username" placeholder="Username"
 	                                required>
 	                        </div>
 	                        <div class="form-group d-flex">

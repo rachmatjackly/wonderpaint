@@ -67,6 +67,7 @@ class Authentication extends CI_Controller {
         {
             $account = $this->Model_authentication->get_data($username);
             $password = password_verify($password, $account[0]['password']);
+            var_dump($account[0]['password']);die;
             if($password){
                 $session = array(
                     "nama" => $account[0]['nama'],
