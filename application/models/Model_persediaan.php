@@ -10,7 +10,7 @@ class Model_persediaan extends CI_Model {
     
     public function insert_data_masuk($data)
     {
-        $this->db->insert('dataMasuk', $data);
+        $this->db->insert('datamasuk', $data);
     }
 
     public function insert_data_keluar($data)

@@ -69,7 +69,7 @@ class Authentication extends CI_Controller {
             $password = password_verify($password, $account[0]['password']);
             if($password){
                 $session = array(
-                    "nama" => $account[0]['nama'],
+                    "nama_account" => $account[0]['nama'],
                     "username" => $account[0]['username'],
                     "login" => True
                 );
@@ -165,6 +165,7 @@ class Authentication extends CI_Controller {
     public function submit_verification()
     {
         $param = $this->input->post('param');
+        $id_param = $this->input->post('id');
         $kd_akses = $this->input->post('kd_akses');
         $password = $this->input->post('password');
         $getKdAkes = $this->Model_authentication->get_data_by_kd_akses($this->session->username,$kd_akses);
@@ -189,11 +190,11 @@ class Authentication extends CI_Controller {
                 }
             }else {
                 $this->session->set_flashdata('verification', 'gagal');
-                redirect($_SERVER['HTTP_REFERER']);
+                redirect('/');
             }
         }else {
             $this->session->set_flashdata('verification', 'gagal');
-            redirect($_SERVER['HTTP_REFERER']);
+            redirect('/');
         }
     }
 

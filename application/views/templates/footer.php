@@ -107,6 +107,15 @@ Swal.fire(
 )
 </script>
 <?php endif ?>
+<?php if($this->session->flashdata('verification') == 'gagal'): ?>
+<script>
+Swal.fire(
+    'Kode/Password Salah !!',
+    'Data Tidak Berhasil di Update',
+    'error'
+)
+</script>
+<?php endif ?>
 <script>
 $(document).ready(function() {
     $("#export").on('change', function() {

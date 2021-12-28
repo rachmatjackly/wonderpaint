@@ -17,11 +17,10 @@ class Home extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    public function index(){
+    public function profile(){
         // $text['judul'] = "Home";
-        $this->load->view('templates/header');
-        $this->load->view('index');
-        $this->load->view('templates/footer');
+        // $this->load->view('templates/header');
+        $this->load->view('profile');
     }
 
     public function penjualan()

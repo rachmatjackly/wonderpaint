@@ -70,7 +70,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active text-primary">
-                <a class="nav-link text-primary" href="index.html">
+                <a class="nav-link text-primary" href="<?= base_url()?>">
                     <i class="fas fa-fw fa-tachometer-alt text-primary"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -144,7 +144,7 @@
                                 id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 <span
-                                    class="mt-1 mb-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('nama')?></span>
+                                    class="mt-1 mb-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('nama_account')?></span>
                                 <i class="fas fa-user text-primary"></i>
                             </a>
                             <!-- Dropdown - User Information -->
