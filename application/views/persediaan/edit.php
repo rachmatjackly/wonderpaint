@@ -22,6 +22,7 @@
                     <div class="dropDownSelect2"></div>
                     <div class="">
                         <select class="form-control btn btn-primary mb-2 mt-5" name="type" id="export">
+                            <option value="">Export</option>
                             <option value="img">Image</option>
                         </select>
                     </div>
